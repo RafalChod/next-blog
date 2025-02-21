@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// app/post/[slug]/page.tsx
 import ReactMarkdown from 'react-markdown';
 
 interface Post {
@@ -12,16 +10,14 @@ interface Post {
   documentId: string;
 }
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-  searchParams?: { [key: string]: string | string[] | undefined };
+// Upewniamy się, że typ params jest Promise, zgodnie z oczekiwaniami Next.js
+interface Params {
+  params: Promise<{ slug: string }>;
 }
 
-export default async function PostPage({ params, searchParams }: PageProps): Promise<JSX.Element> {
-  // Pobieramy slug z parametrów
-  const { slug } = params;
+export default async function PostPage({ params }: Params) {
+  // Czekamy, aż promise zostanie rozwiązany
+  const { slug } = await params;
 
   // Definiujemy zapytanie GraphQL
   const query = `
