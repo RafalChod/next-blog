@@ -11,13 +11,7 @@ interface Post {
   documentId: string;
 }
 
-interface Params {
-  params: {
-    slug: string;
-  };
-}
-
-export default async function PostPage({ params }: Params) {
+export default async function PostPage({ params }: { params: { slug: string } }) {
   // 1. Pobieramy slug z parametrów
   const { slug } = params;
 
