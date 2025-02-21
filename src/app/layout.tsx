@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { TopNavigation } from "@/components/navigation";
+import { pixelify } from "@/app/fonts";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${pixelify.variable}`}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+        className={`antialiased`}
+      ><TopNavigation />
         {children}
+        <div className="bg-gray-100 h-[10vh] text-center text-[40px]">footer</div>
       </body>
     </html>
   );
