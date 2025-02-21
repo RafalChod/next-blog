@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // app/post/[slug]/page.tsx
 import ReactMarkdown from 'react-markdown';
 
