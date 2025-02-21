@@ -11,11 +11,18 @@ interface Post {
   documentId: string;
 }
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
-  // 1. Pobieramy slug z parametrów
+interface PageProps {
+  params: {
+    slug: string;
+  };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export default async function PostPage({ params, searchParams }: PageProps): Promise<JSX.Element> {
+  // Pobieramy slug z parametrów
   const { slug } = params;
 
-  // 2. Definiujemy zapytanie GraphQL
+  // Definiujemy zapytanie GraphQL
   const query = `
     query PostBySlug($slug: String!) {
       posts(filters: { slug: { eq: $slug } }) {
@@ -30,7 +37,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
     }
   `;
 
-  // 3. Wysyłamy zapytanie z parametrem $slug
+  // Wysyłamy zapytanie z parametrem $slug
   const response = await fetch('https://my-strapi-blog-be68a5fc8701.herokuapp.com/graphql', {
     method: 'POST',
     headers: {
