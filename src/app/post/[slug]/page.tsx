@@ -37,7 +37,7 @@ export default async function PostPage({ params }: Params) {
   `;
 
   // 3. Wysyłamy zapytanie z parametrem $slug
-  const response = await fetch('http://localhost:1337/graphql', {
+  const response = await fetch('https://my-strapi-blog-be68a5fc8701.herokuapp.com/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ export default async function PostPage({ params }: Params) {
 
       {post.image?.url ? (
         <img
-          src={`http://localhost:1337${post.image.url}`}
+          src={`https://my-strapi-blog-be68a5fc8701.herokuapp.com/${post.image.url}`}
           alt={post.title}
           style={{ maxWidth: '300px', display: 'block', marginTop: '0.5rem' }}
         />

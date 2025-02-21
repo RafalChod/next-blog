@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -30,7 +31,7 @@ export default async function TopNavigation() {
   `;
 
   // Wysyłamy zapytanie do Strapi
-  const response = await fetch("http://localhost:1337/graphql", {
+  const response = await fetch("https://my-strapi-blog-be68a5fc8701.herokuapp.com/graphql", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ query }),
