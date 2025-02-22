@@ -35,7 +35,7 @@ export default async function PostPage({ params }: Params) {
   `;
 
   // Wysyłamy zapytanie z parametrem $slug
-  const response = await fetch('https://my-strapi-blog-be68a5fc8701.herokuapp.com/graphql', {
+  const response = await fetch('https://strapi-cms-app-2x2e.onrender.com/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export default async function PostPage({ params }: Params) {
 
       {post.image?.url ? (
         <img
-          src={`https://my-strapi-blog-be68a5fc8701.herokuapp.com/${post.image.url}`}
+          src={`https://strapi-cms-app-2x2e.onrender.com/${post.image.url}`}
           alt={post.title}
           style={{ maxWidth: '300px', display: 'block', marginTop: '0.5rem' }}
         />

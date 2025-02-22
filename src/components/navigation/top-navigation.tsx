@@ -31,7 +31,7 @@ export default async function TopNavigation() {
   `;
 
   // Wysyłamy zapytanie do Strapi
-  const response = await fetch("https://my-strapi-blog-be68a5fc8701.herokuapp.com/graphql", {
+  const response = await fetch("https://strapi-cms-app-2x2e.onrender.com/graphql", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ query }),
