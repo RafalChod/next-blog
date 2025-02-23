@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import HeroSection from '@/components/hero-section';
 import Link from 'next/link';
+import PostSection from '@/components/post-section';
+import About from '@/components/about';
 
 // Wymuszamy dynamiczne renderowanie strony
 export const dynamic = 'force-dynamic';
@@ -44,8 +47,9 @@ export default async function HomePage() {
     // Zwrot gotowego JSX
     return (
       <main style={{ padding: '1rem' }}>
-        <h1>Homepage</h1>
-        <h2>Posts</h2>
+        <HeroSection />
+        <About />
+        <PostSection />
         <ul>
           {data.posts.map((post: { image: any; slug: string; title: string }, i: number) => (
             <li key={i}>
@@ -67,7 +71,6 @@ export default async function HomePage() {
     console.error('Błąd przy pobieraniu danych:', error);
     return (
       <main style={{ padding: '1rem' }}>
-        <h1>Homepage</h1>
         <h2>Błąd przy pobieraniu danych</h2>
       </main>
     );

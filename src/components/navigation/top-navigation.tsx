@@ -57,7 +57,7 @@ export default async function TopNavigation() {
   const { Links, CTA } = navigationData;
 
   return (
-    <header className="flex items-center justify-between gap-10 py-4 container">
+    <header className="sticky top-0 z-50 flex items-center justify-between gap-10 py-4 container mx-auto max-w-7xl px-6 lg:px-8 bg-white">
       <Link href="/" className="flex items-center gap-3">
         <svg fill="none" viewBox="0 0 238 238" className="size-6 text-primary">
           <path
