@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { TopNavigation } from "@/components/navigation";
 import { pixelify } from "@/app/fonts";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +20,7 @@ export default function RootLayout({
         className={`antialiased`}
       ><TopNavigation />
         {children}
-        <div className="bg-gray-100 h-[10vh] text-center text-[40px]">footer</div>
+        <Footer />
       </body>
     </html>
   );
