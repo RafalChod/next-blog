@@ -37,14 +37,24 @@ const elementClasses = {
 }
 
 export function AnimatedBannerElement({ children, type, id }: AnimatedElementProps) {
-  const Element = type === 'image' ? motion.img : motion[type === 'title' ? 'h1' : 'p']
-  
+  if (type === 'image') {
+    return (
+      <motion.img
+        key={id}
+        src={children as string}
+        alt=""
+        {...animations[type]}
+        className={elementClasses[type]}
+      />
+    )
+  }
+
+  const Element = motion[type === 'title' ? 'h1' : 'p']
   return (
     <Element
       key={id}
       {...animations[type]}
       className={elementClasses[type]}
-      {...(type === 'image' ? { alt: "" } : {})}
     >
       {children}
     </Element>
